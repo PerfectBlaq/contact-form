@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <main class="main">
+      <h1 class="main__title">Contact Us</h1>
+      <form action="" class="form">
+        <!-- name inputs -->
+        <div class="form__row">
+          <div class="field">
+            <label for="first-name" class="field__label"> First Name <span class="required">*</span></label>
+            <input type="text" id="first-name" class="field__input" name="firstname"/>
+          </div>
+          <div class="field">
+            <label for="last-name" class="field__label">Last Name <span class="required">*</span></label>
+            <input type="text" id="last-name" class="field__input" name="lastname"/>
+          </div>
+        </div>
+        <!-- email -->
+        <div class="field">
+          <label for="e-mail" class="field__label">Email Address <span class="required">*</span></label>
+          <input type="email" id="e-mail" class="field__input" name="email"/>
+        </div>
+        <!-- query type -->
+        <fieldset class="radio">
+          <legend class="radio__title">Query Type <span class="required">*</span></legend>
+          <div class="radio__opt">
+            <input type="radio" id="general-enquiry" name="query-type" value="general" class="radio__input"/>
+            <label for="general-enquiry" class="radio__label">General Enquiry</label>
+          </div>
+          <div class="radio__opt">
+            <input type="radio" id="support-request" name="query-type" value="" class="radio__input"/>
+            <label for="support-request" class="radio__label">Support Request</label>
+          </div>
+        </fieldset>
+        <div class="mssg">
+            <label for="message" class="mssg__label">Message <span class="required">*</span></label>
+            <textarea name="message" id="message" class="mssg__input"></textarea>
+        </div>
+        <div class="consent">
+            <input type="checkbox" id="tc-s" name="terms" class="consent__box">
+            <label for="tc-s" class="consent__label">I consent to being contacted by the team <span class="required">*</span></label>
+        </div>
+        <button type="submit" class="submitbtn">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>
