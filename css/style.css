@@ -166,5 +166,5 @@ body {
     color: var(--red);
 }
 .show{
-    display: block;
+    display: block !important;
 }

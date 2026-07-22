@@ -27,8 +27,9 @@ form[0].addEventListener("submit", (e) => {
     email.style.borderColor = "red";
   }
 //   got stuck here
+// finally solve the error, what happened: firstly none of my radio input had a required attribut so the valuemissing was returning undefined, finally fixed it by giving one an attribute of required and secondly the class I was dynamically adding wasnt working and this is because the id has a higher specificty than the class so I had to give the styling in the class I was adding dynamically !important 
   if (queryType.validity.valueMissing){
-    console.log(e);
+
     radioError.className = "show";
     
 }

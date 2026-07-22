@@ -66,6 +66,7 @@
                 name="query-type"
                 value="general"
                 class="radio__input"
+                required
               />
               <label for="general-enquiry" class="radio__label"
                 >General Enquiry</label
@@ -96,9 +97,7 @@
             class="mssg__input"
             required
           ></textarea>
-          <p id="mssg__err">
-            This field is required
-          </p>
+          <p id="mssg__err">This field is required</p>
         </div>
         <div class="consent">
           <div class="consent__field">
@@ -114,7 +113,9 @@
               <span class="required">*</span></label
             >
           </div>
-          <p id="consent__err">To submit this form, pls consent to being contacted</p>
+          <p id="consent__err">
+            To submit this form, pls consent to being contacted
+          </p>
         </div>
         <button type="submit" class="submitbtn">Submit</button>
       </form>
