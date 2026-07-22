@@ -14,36 +14,36 @@
         <div class="form__row">
           <div class="field">
             <label for="first-name" class="field__label"> First Name <span class="required">*</span></label>
-            <input type="text" id="first-name" class="field__input" name="firstname"/>
+            <input type="text" id="first-name" class="field__input" name="firstname" required/>
           </div>
           <div class="field">
             <label for="last-name" class="field__label">Last Name <span class="required">*</span></label>
-            <input type="text" id="last-name" class="field__input" name="lastname"/>
+            <input type="text" id="last-name" class="field__input" name="lastname" required/>
           </div>
         </div>
         <!-- email -->
         <div class="field">
           <label for="e-mail" class="field__label">Email Address <span class="required">*</span></label>
-          <input type="email" id="e-mail" class="field__input" name="email"/>
+          <input type="email" id="e-mail" class="field__input" name="email" required/>
         </div>
         <!-- query type -->
         <fieldset class="radio">
           <legend class="radio__title">Query Type <span class="required">*</span></legend>
           <div class="radio__opt">
-            <input type="radio" id="general-enquiry" name="query-type" value="general" class="radio__input"/>
+            <input type="radio" id="general-enquiry" name="query-type" value="general" class="radio__input" required/>
             <label for="general-enquiry" class="radio__label">General Enquiry</label>
           </div>
           <div class="radio__opt">
-            <input type="radio" id="support-request" name="query-type" value="" class="radio__input"/>
+            <input type="radio" id="support-request" name="query-type" value="" class="radio__input" required/>
             <label for="support-request" class="radio__label">Support Request</label>
           </div>
         </fieldset>
         <div class="mssg">
             <label for="message" class="mssg__label">Message <span class="required">*</span></label>
-            <textarea name="message" id="message" class="mssg__input"></textarea>
+            <textarea name="message" id="message" class="mssg__input" required></textarea>
         </div>
         <div class="consent">
-            <input type="checkbox" id="tc-s" name="terms" class="consent__input">
+            <input type="checkbox" id="tc-s" name="terms" class="consent__input" required>
             <label for="tc-s" class="consent__label">I consent to being contacted by the team <span class="required">*</span></label>
         </div>
         <button type="submit" class="submitbtn">Submit</button>
