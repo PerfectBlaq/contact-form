@@ -68,11 +68,19 @@ body {
   border: 1px solid var(--grey900-dark);
   border-radius: 5px;
   vertical-align: middle;
+  padding: 10px 15px;
+}
+.radio__opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
 }
 .mssg__input {
   height: 80px;
   padding: 10px 15px;
   border-radius: 5px;
+  cursor: pointer;
 }
 .consent {
   margin: 35px 0;
@@ -82,7 +90,8 @@ body {
   margin-bottom: 30px;
 }
 .field__label,
-.radio__title {
+.radio__title,
+.mssg__label {
   display: inline-block;
   margin-bottom: 10px;
 }
@@ -99,4 +108,24 @@ body {
   background-color: var(--green600-med);
   color: white;
   border-radius: 10px;
+  cursor: pointer;
+}
+.form input,
+.form label {
+  cursor: pointer;
+}
+/* states */
+.field__input:focus,
+.mssg__input:focus {
+  border: 1px solid var(--green600-med);
+  outline: none;
+  /* outline: 1px solid var(--green600-med); */
+}
+.radio__opt:has(.radio__input:checked) {
+  background-color: var(--green200-light);
+  border: 1px solid var(--green600-med);
+  outline: none;
+}
+.submitbtn:hover {
+    background-color: var(--grey900-dark);
 }
