@@ -161,10 +161,11 @@ body {
 }
 .field__err, #radio__err, #mssg__err, #consent__err{
     display: none;
-    font-size: 14px;
-    margin-top: 5px;
-    color: var(--red);
+    
 }
 .show{
     display: block !important;
+    font-size: 14px;
+    margin-top: 5px;
+    color: var(--red);
 }
