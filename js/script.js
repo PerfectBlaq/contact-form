@@ -1,5 +1,5 @@
 /* DOM Elements */
-const form = document.getElementsByClassName("form");
+const form = document.getElementsById("form");
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("e-mail");
@@ -16,33 +16,43 @@ const elements = [[firstName, lastName, email], queryTypes, message, terms];
 const errors = [fieldError, radioError, mssgError, termsError];
 // console.log(firstName.value, "", " ");
 
-form[0].addEventListener("submit", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (firstName.value === "") {
+  let formValid = true;
+  if (firstName.validity.valueMissing) {
     fieldError[0].classList.add("show");
     firstName.style.borderColor = "red";
+    formValid = false;
   }
-  if (lastName.value === "") {
+  if (lastName.validity.valueMissing) {
     fieldError[1].classList.add("show");
     lastName.style.borderColor = "red";
+    formValid = false;
   }
-  if (email.value === "" || !email.includes("@gmail.com")) {
+  if (email.validity.valueMissing || email.validity.valueMismatch) {
     fieldError[2].classList.add("show");
     email.style.borderColor = "red";
+    formValid = false;
   }
   //   got stuck here
   // finally solve the error, what happened: firstly none of my radio input had a required attribut so the valuemissing was returning undefined, finally fixed it by giving one an attribute of required and secondly the class I was dynamically adding wasnt working and this is because the id has a higher specificty than the class so I had to give the styling in the class I was adding dynamically !important
   if (queryType.validity.valueMissing) {
     radioError.className = "show";
+    formValid = false;
   }
-  if (message.value === "") {
+  if (message.validity.valueMissing) {
     mssgError.className = "show";
     message.style.borderColor = "red";
+    formValid = false;
   }
-  if (!terms.checked) {
+  if (terms.validity.valueMissing) {
     termsError.className = "show";
+    formValid = false;
   }
-  console.log(e);
+  if (formValid){
+    form.reset();
+  }
+  // console.log(e);
 });
 // console.log(errors[0]);
 for (let i = 0; i < 3; i++) {
@@ -71,10 +81,3 @@ for (let i = 1; i <= 3; i++) {
     });
   }
 }
-/* firstName.addEventListener("change", ()=>{
-
-})
-firstName.addEventListener("change", () => {
-
-});
-firstName.addEventListener("change", () => {}); */
