@@ -202,9 +202,6 @@ div.toast.show{
   .form__row, .radio__field {
     flex-wrap: wrap;
   }
-  .consent{
-    margin: 17.5px 0;
-  }
   .submitbtn {
     padding: 15px;
     font-size: 15px;

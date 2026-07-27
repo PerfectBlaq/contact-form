@@ -16,39 +16,38 @@ const toast = document.getElementById("toast");
 const elements = [[firstName, lastName, email], queryTypes, message, terms];
 const errors = [fieldError, radioError, mssgError, termsError];
 // console.log(firstName.value, "", " ");
-
+function editors(field, error) {
+  field.style.borderColor = "red";
+  error.classList.add("show");
+  formValid = false;
+}
+function classAdd(tag) {
+  tag.classList.add("show");
+  formValid = false;
+}
+let formValid = true;
+/* Form Validation */
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  let formValid = true;
   if (firstName.validity.valueMissing) {
-    fieldError[0].classList.add("show");
-    firstName.style.borderColor = "red";
-    formValid = false;
+    editors(firstName, fieldError[0]);
   }
   if (lastName.validity.valueMissing) {
-    fieldError[1].classList.add("show");
-    lastName.style.borderColor = "red";
-    formValid = false;
+    editors(lastName, fieldError[1]);
   }
   if (email.validity.valueMissing || email.validity.valueMismatch) {
-    fieldError[2].classList.add("show");
-    email.style.borderColor = "red";
-    formValid = false;
+    editors(email, fieldError[2]);
   }
   //   got stuck here
   // finally solve the error, what happened: firstly none of my radio input had a required attribut so the valuemissing was returning undefined, finally fixed it by giving one an attribute of required and secondly the class I was dynamically adding wasnt working and this is because the id has a higher specificty than the class so I had to give the styling in the class I was adding dynamically !important
   if (queryType.validity.valueMissing) {
-    radioError.className = "show";
-    formValid = false;
+    classAdd(radioError);
   }
   if (message.validity.valueMissing) {
-    mssgError.className = "show";
-    message.style.borderColor = "red";
-    formValid = false;
+    editors(message, mssgError);
   }
   if (terms.validity.valueMissing) {
-    termsError.className = "show";
-    formValid = false;
+    classAdd(termsError);
   }
   if (formValid) {
     form.reset();
@@ -62,6 +61,7 @@ form.addEventListener("submit", (e) => {
   // console.log(e);
 });
 // console.log(errors[0]);
+/* This section handles the inputs after an error has occured */
 for (let i = 0; i < 3; i++) {
   elements[0][i].addEventListener("input", () => {
     elements[0][i].style.borderColor = "var(--grey500-med)";
