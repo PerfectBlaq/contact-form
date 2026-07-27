@@ -1,5 +1,5 @@
 /* DOM Elements */
-const form = document.getElementsById("form");
+const form = document.getElementById("form");
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("e-mail");
@@ -11,6 +11,7 @@ const fieldError = document.getElementsByClassName("field__err");
 const radioError = document.getElementById("radio__err");
 const mssgError = document.getElementById("mssg__err");
 const termsError = document.getElementById("consent__err");
+const toast = document.getElementById("toast");
 /*DOM elements in arrays so I can access them easily using loops */
 const elements = [[firstName, lastName, email], queryTypes, message, terms];
 const errors = [fieldError, radioError, mssgError, termsError];
@@ -49,8 +50,14 @@ form.addEventListener("submit", (e) => {
     termsError.className = "show";
     formValid = false;
   }
-  if (formValid){
+  if (formValid) {
     form.reset();
+    toast.classList.add("show");
+    if (toast.classList.contains("show")) {
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
   }
   // console.log(e);
 });
