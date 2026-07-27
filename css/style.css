@@ -14,21 +14,20 @@
   font-family: "Karla", sans-serif;
 }
 body {
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--green200-light);
 }
 /* main layout styling */
 .main {
-  position: relative;
   background-color: var(--white);
-  max-width: 600px;
+  min-width: 600px;
   /* height: 650px; */
   /* margin: auto auto; */
   padding: 35px;
   border-radius: 15px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 #form {
   color: var(--grey900-dark);
@@ -190,4 +189,24 @@ div.toast.show{
     font-size: 14px;
     margin-top: 5px;
     color: var(--red);
+}
+@media (max-width: 426px) {
+  body{
+    padding: 20px 15px;
+  }
+  .main{
+    padding: 15px;
+    min-height: 100vh;
+    min-width: 300px;
+  }
+  .form__row, .radio__field {
+    flex-wrap: wrap;
+  }
+  .consent{
+    margin: 17.5px 0;
+  }
+  .submitbtn {
+    padding: 15px;
+    font-size: 15px;
+  }
 }
