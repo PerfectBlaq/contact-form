@@ -36,7 +36,7 @@ form.addEventListener("submit", (e) => {
     editors(lastName, fieldError[1]);
     formValid = false;
   }
-  if (email.validity.valueMissing || email.validity.valueMismatch) {
+  if (email.validity.valueMissing || email.validity.typeMismatch) {
     editors(email, fieldError[2]);
     formValid = false;
   }
