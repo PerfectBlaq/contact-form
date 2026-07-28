@@ -19,42 +19,47 @@ const errors = [fieldError, radioError, mssgError, termsError];
 function editors(field, error) {
   field.style.borderColor = "red";
   error.classList.add("show");
-  formValid = false;
 }
 function classAdd(tag) {
   tag.classList.add("show");
-  formValid = false;
 }
 let formValid = true;
 /* Form Validation */
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  // debugger;
   if (firstName.validity.valueMissing) {
     editors(firstName, fieldError[0]);
+    formValid = false;
   }
   if (lastName.validity.valueMissing) {
     editors(lastName, fieldError[1]);
+    formValid = false;
   }
   if (email.validity.valueMissing || email.validity.valueMismatch) {
     editors(email, fieldError[2]);
+    formValid = false;
   }
   //   got stuck here
   // finally solve the error, what happened: firstly none of my radio input had a required attribut so the valuemissing was returning undefined, finally fixed it by giving one an attribute of required and secondly the class I was dynamically adding wasnt working and this is because the id has a higher specificty than the class so I had to give the styling in the class I was adding dynamically !important
   if (queryType.validity.valueMissing) {
     classAdd(radioError);
+    formValid = false;
   }
   if (message.validity.valueMissing) {
     editors(message, mssgError);
+    formValid = false;
   }
   if (terms.validity.valueMissing) {
     classAdd(termsError);
+    formValid = false;
   }
   if (formValid) {
     form.reset();
-    toast.classList.add("show");
-    if (toast.classList.contains("show")) {
+    toast.classList.add("toast--show");
+    if (toast.classList.contains("toast--show")) {
       setTimeout(() => {
-        toast.classList.remove("show");
+        toast.classList.remove("toast--show");
       }, 3000);
     }
   }
@@ -66,6 +71,7 @@ for (let i = 0; i < 3; i++) {
   elements[0][i].addEventListener("input", () => {
     elements[0][i].style.borderColor = "var(--grey500-med)";
     errors[0][i].classList.remove("show");
+    formValid = true;
   });
 }
 for (let i = 1; i <= 3; i++) {
@@ -73,6 +79,7 @@ for (let i = 1; i <= 3; i++) {
     elements[i].forEach((query) => {
       query.addEventListener("change", () => {
         errors[i].classList.remove("show");
+        formValid = true;
       });
     });
   }
@@ -80,11 +87,13 @@ for (let i = 1; i <= 3; i++) {
     elements[i].addEventListener("input", () => {
       elements[i].style.borderColor = "var(--grey500-med)";
       errors[i].classList.remove("show");
+      formValid = true;
     });
   }
   if (i == 3) {
     elements[i].addEventListener("change", () => {
       errors[i].classList.remove("show");
+      formValid = true;
     });
   }
 }

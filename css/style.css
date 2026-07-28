@@ -148,7 +148,7 @@ body {
 .toast__title{
   margin-bottom: 5px;
 }
-div.toast.show{
+div.toast--show{
   display: block;
 }
 /* states */
@@ -205,5 +205,11 @@ div.toast.show{
   .submitbtn {
     padding: 15px;
     font-size: 15px;
+  }
+  .consent__input{
+    flex-shrink: 0;
+  }
+  .toast{
+    min-width: 300px;
   }
 }
